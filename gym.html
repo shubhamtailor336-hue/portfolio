@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FitZone Gym</title>
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Arial, sans-serif;
+    }
+
+    body{
+      background:#111;
+      color:white;
+    }
+
+    header{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:20px 60px;
+      background:black;
+      position:sticky;
+      top:0;
+      z-index:100;
+    }
+
+    .logo{
+      font-size:30px;
+      font-weight:bold;
+      color:#ff3c00;
+    }
+
+    nav a{
+      text-decoration:none;
+      color:white;
+      margin-left:25px;
+      transition:0.3s;
+    }
+
+    nav a:hover{
+      color:#ff3c00;
+    }
+
+    .hero{
+      height:90vh;
+      background:
+      linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+      url('https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=1200&auto=format&fit=crop');
+      background-size:cover;
+      background-position:center;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      flex-direction:column;
+      text-align:center;
+      padding:20px;
+    }
+
+    .hero h1{
+      font-size:60px;
+      margin-bottom:20px;
+      animation:shubham 1.2s ease;
+    }
+
+    .hero p{
+      font-size:22px;
+      margin-bottom:30px;
+    }
+
+    .btn{
+      padding:14px 30px;
+      width: 100px;
+      background:#ff3c00;
+      color:white;
+      text-decoration:none;
+      border-radius:8px;
+      transition:0.3s;
+      font-weight:bold;
+    }
+
+    .btn:hover{
+      background:white;
+      color:black;
+      transform:scale(1.05);
+    }
+
+    section{
+      padding:70px 50px;
+    }
+
+    .title{
+      text-align:center;
+      font-size:40px;
+      margin-bottom:50px;
+      color:#ff3c00;
+    }
+
+    .plans{ 
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:25px;
+    }
+
+    .card{
+      background:#1c1c1c;
+      padding:30px;
+      border-radius:15px;
+      text-align:center;
+      transition:0.4s;
+      box-shadow:0 5px 15px rgba(0,0,0,0.4);
+    }
+
+    .card:hover{
+      transform:translateY(-10px);
+    }
+
+    .card h3{
+      margin-bottom:20px;
+      color:#ff3c00;
+      font-size:28px;
+    }
+
+    .price{
+      font-size:35px;
+      margin-bottom:20px;
+      font-weight:bold;
+    }
+
+    .card p{
+      margin:10px 0;
+    }
+
+    .trainers{
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:center;
+      gap:25px;
+    }
+
+    .trainer-card{
+      background:#1c1c1c;
+      width:280px;
+      border-radius:15px;
+      overflow:hidden;
+      text-align:center;
+      transition:0.4s;
+    }
+
+    .trainer-card:hover{
+      transform:scale(1.05);
+    }
+
+    .trainer-card img{
+      width:100%;
+      height:300px;
+      object-fit:cover;
+    }
+
+    .trainer-card h3{
+      margin-top:15px;
+      color:#ff3c00;
+    }
+
+    .trainer-card p{
+      padding-bottom:20px;
+    }
+    .highlight{
+        background-color: white;
+    }
+
+    .gallery{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:20px;
+    }
+
+    .gallery img{
+      width:100%;
+      border-radius:15px;
+      transition:0.4s;
+    }
+
+    .gallery img:hover{
+      transform:scale(1.05);
+    }
+
+    .contact{
+      text-align:center;
+      background:#1c1c1c;
+      border-radius:20px;
+      margin:40px;
+      padding:50px 20px;
+    }
+
+    .contact input,
+    .contact textarea{
+      width:80%;
+      padding:14px;
+      margin:10px 0;
+      border:none;
+      border-radius:8px;
+    }
+
+    .contact button{
+      padding:14px 30px;
+      background:#ff3c00;
+      color:white;
+      border:none;
+      border-radius:8px;
+      cursor:pointer;
+      transition:0.3s;
+      font-weight:bold;
+    }
+
+    .contact button:hover{
+      background:white;
+      color:black;
+    }
+
+    footer{
+      text-align:center;
+      padding:20px;
+      background:black;
+    }
+
+    @keyframes slideDown{
+      from{
+        opacity:0;
+        transform:translateY(-50px);
+      }
+
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
+    }
+
+    @media(max-width:768px){
+
+      header{
+        flex-direction:column;
+      }
+
+      nav{
+        margin-top:15px;
+      }
+
+      .hero h1{
+        font-size:40px;
+      }
+
+      .hero p{
+        font-size:18px;
+      }
+
+      section{
+        padding:50px 20px;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="logo">FitZone</div>
+
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">Plans</a>
+      <a href="#">Trainers</a>
+      <a href="#">Gallery</a>
+      <a href="#">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+
+    <h1>Transform Your Body</h1>
+
+    <p>Join FitZone Gym And Start Your Fitness Journey Today</p>
+
+    <a href="#" class="btn">Join Now</a>
+
+  </section>
+
+  <section>
+
+    <h2 class="title">Membership Plans</h2>
+
+    <div class="plans">
+
+      <div class="card">
+        <h3>Basic</h3>
+        <div class="price">₹999</div>
+        <p>Gym Access</p>
+        <p>Cardio Area</p>
+        <p>Locker Facility</p>
+      </div>
+
+      <div class="card">
+        <h3>Standard</h3>
+        <div class="price">₹1999</div>
+        <p>All Basic Features</p>
+        <p>Personal Trainer</p>
+        <p>Diet Plan</p>
+      </div>
+
+      <div class="card">
+        <h3>Premium</h3>
+        <div class="price">₹2999</div>
+        <p>All Features Included</p>
+        <p>Steam Bath</p>
+        <p>24/7 Access</p>
+      </div>
+
+    </div>
+
+  </section>
+
+  <section>
+
+    <h2 class="title">Our Trainers</h2>
+
+    <div class="trainers">
+
+      <div class="trainer-card">
+        <img src="https://images.unsplash.com/photo-1567013127542-490d757e51fc?q=80&w=800&auto=format&fit=crop" alt="">
+        <h3>Rahul Sharma</h3>
+        <p>Fitness Coach</p>
+      </div>
+
+      <div class="trainer-card">
+        <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?q=80&w=800&auto=format&fit=crop" alt="">
+        <h3>Priya Singh</h3>
+        <p>Yoga Trainer</p>
+      </div>
+
+      <div class="trainer-card">
+        <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=800&auto=format&fit=crop" alt="">
+        <h3>Amit Verma</h3>
+        <p>Bodybuilding Expert</p>
+      </div>
+
+    </div>
+
+  </section>
+
+  <section>
+
+    <h2 class="title">Gym Gallery</h2>
+
+    <div class="gallery">
+
+      <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?q=80&w=800&auto=format&fit=crop" alt="">
+
+      <img src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd?q=80&w=800&auto=format&fit=crop" alt="">
+
+      <img src="https://images.unsplash.com/photo-1517963879433-6ad2b056d712?q=80&w=800&auto=format&fit=crop" alt="">
+
+      <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=800&auto=format&fit=crop" alt="">
+
+    </div>
+
+  </section>
+
+  <section class="contact">
+
+    <h2 class="title">Contact Us</h2>
+
+    <input type="text" placeholder="Enter Your Name">
+    <br>
+
+    <input type="email" placeholder="Enter Your Email">
+    <br>
+
+    <textarea rows="5" placeholder="Your Message"></textarea>
+    <br>
+
+    <button>Send Message</button>
+
+  </section>
+
+  <footer>
+    <p>© 2026 FitZone Gym | All Rights Reserved</p>
+  </footer>
+
+</body>
+</html>
